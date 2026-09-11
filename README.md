@@ -23,10 +23,9 @@ RS485 기반 월패드(홈넷) 신호를 esp 또는 M5stack (atom lite) + tail 4
 
 https://yogyui.tistory.com/entry/%ED%98%84%EB%8C%80%ED%86%B5%EC%8B%A0-%EC%9B%94%ED%8C%A8%EB%93%9C-RS-485-%ED%86%B5%EC%8B%A0-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-%EB%AA%85%EC%84%B8-%EA%B3%B5%ED%86%B5-%EC%82%AC%EC%96%91
 
-# EW11을 이용한 MQTT 및 패킷 제어 정보
+# EW11을 이용한 MQTT 및 현대 imazu관련 패킷 제어 정보
 
-[homenet2mqtt](https://github.com/wooooooooooook/homenet2mqtt/blob/main/gallery/hyundai_imazu/lights_new.yaml)
-
+[[homenet2mqtt](https://github.com/wooooooooooook/homenet2mqtt/blob/main/gallery/hyundai_imazu/lights_new.yaml)](https://github.com/wooooooooooook/homenet2mqtt/tree/main/gallery/hyundai_imazu)
 
 ## 라이선스
 
