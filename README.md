@@ -1,6 +1,5 @@
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/broadeep/ha-esp)
-
 # ESPHome external components 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/broadeep/ha-esp)
 [![ESPHome External Component](https://img.shields.io/badge/ESPHome-External%20Component-000000?logo=esphome)](https://esphome.io/components/external_components/)
 [![GitHub Release](https://img.shields.io/github/release/eigger/espcomponents.svg)](https://github.com/eigger/espcomponents/releases)
 [![License](https://img.shields.io/github/license/eigger/espcomponents)](https://github.com/eigger/espcomponents/blob/master/LICENSE)
