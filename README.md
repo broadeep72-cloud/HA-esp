@@ -1,5 +1,17 @@
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/broadeep/ha-esp)
 
+# ESPHome external components 
+[![ESPHome External Component](https://img.shields.io/badge/ESPHome-External%20Component-000000?logo=esphome)](https://esphome.io/components/external_components/)
+[![GitHub Release](https://img.shields.io/github/release/eigger/espcomponents.svg)](https://github.com/eigger/espcomponents/releases)
+[![License](https://img.shields.io/github/license/eigger/espcomponents)](https://github.com/eigger/espcomponents/blob/master/LICENSE)
+
+<a href="https://esphome.io/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://media.esphome.io/logo/logo-text-on-dark.svg", alt="ESPHome Logo">
+    <img src="https://media.esphome.io/logo/logo-text-on-light.svg" alt="ESPHome Logo">
+  </picture>
+</a>
+
 # Ha-esp 485 (esp-RS485 to HA)
 
 RS485 기반 월패드(홈넷) 신호를 esp 또는 M5stack (atom lite) + tail 485 를 통해서 홈어시스턴트 스마트홈 플랫폼에서 일괄적으로 제어/모니터링할 수 있도록 연결해 주는 통합 브릿지 솔루션입니다.
