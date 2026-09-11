@@ -11,34 +11,22 @@
   </picture>
 </a>
 
-# Ha-esp 485 (esp-RS485 to HA)
+# M5Stack (Atom lite) + Tail485를 이용한 월패드 패킷 제어  
 
-RS485 기반 월패드(홈넷) 신호를 esp 또는 M5stack (atom lite) + tail 485 를 통해서 홈어시스턴트 스마트홈 플랫폼에서 일괄적으로 제어/모니터링할 수 있도록 연결해 주는 통합 브릿지 솔루션입니다.
+RS485 기반 월패드(홈넷) 신호를 esp 또는 M5stack (atom lite) + tail 485 를 이용해서 홈어시스턴트 스마트홈 플랫폼에서 일괄적으로 제어/모니터링할 수 있도록 연결하는 정보를 제공합니다.
 
-## 문서 바로가기
+# M5Stack (Atom lite) + Tail485에 대한 세부적 정보
 
-https://ha-esp-docs.vercel.app
+참고 링크 : https://github.com/eigger/espcomponents/tree/master/packages/wallpad#readme 
 
-## 주요 기능 및 지원 모드
+# 월패드에 대한 RS485 패킷 정보
 
-- **esp를 통한 기기 직연동 모드 (EspHome)**: 기기 상태를 Home Assistant의 espHome을 통해 자동 등록합니다.
-- **실시간 패킷 모니터링**: espHome 웹을 통해 RS485 통신 상태를 모니터링하고 분석에 활용합니다.
+https://yogyui.tistory.com/entry/%ED%98%84%EB%8C%80%ED%86%B5%EC%8B%A0-%EC%9B%94%ED%8C%A8%EB%93%9C-RS-485-%ED%86%B5%EC%8B%A0-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-%EB%AA%85%EC%84%B8-%EA%B3%B5%ED%86%B5-%EC%82%AC%EC%96%91
 
-## 빠른 요약
+# EW11을 이용한 MQTT 및 패킷 제어 정보
 
-- **권장 설치 방법**: Home Assistant Add-on (`espHome Device Builder`)
-- **첫 실행 검증**: espHome → M5Stack → 로그에서 패킷 전송 확인
+[homenet2mqtt](https://github.com/wooooooooooook/homenet2mqtt/blob/main/gallery/hyundai_imazu/lights_new.yaml)
 
-## 개발 관련
-
-- 워크스페이스 빌드: `pnpm build`
-- 린트 및 포맷: `pnpm lint`, `pnpm format`
-- 테스트: `pnpm test`
-
-## 지원 채널
-
-- [GitHub Issues](https://github.com/broadeep72-cloud/HA-esp/issues)
-- [Discord](https://discord.gg/)
 
 ## 라이선스
 
