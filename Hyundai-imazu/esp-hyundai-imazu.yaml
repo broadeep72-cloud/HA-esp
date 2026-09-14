@@ -663,14 +663,14 @@ climate:
 
 text_sensor:
   - platform: uartex
+    id: elevator_floor
     name: "Elevator Floor"
     icon: "mdi:elevator"
     state:
-      # Match Query Packet: F7 0D 01 34 01 41 10 00 [State] [Floor] [ID] [CS] EE
-      # Header(F7) is omitted in standard parsing usually, but index calculations assume F7 is x[0]
-      data: [0x0D, 0x01, 0x34, 0x01, 0x41]
+      data: [0x0D, 0x01, 0x34, 0x01, 0x41, 0x10, 0x00, 0x00, 0x00, 0x00]
+      mask: [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00]
     lambda: |-
-      uint8_t f = data[9];
+      uint8_t f = data[8];
       if (f >= 0xB0) {
         return std::string("B") + std::to_string(f - 0xB0);
       } else {
@@ -678,40 +678,43 @@ text_sensor:
       }
       
   - platform: uartex
-    id: elevator_state
-    name: "Elevator State"
+    id: elevator_direction
+    name: "Elevator Direction"
     icon: "mdi:elevator-passenger"
     state:
-      data: [0x0D, 0x01, 0x34, 0x01, 0x41, 0x10, 0x00]
-      mask: [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]
+      data: [0x0D, 0x01, 0x34, 0x01, 0x41, 0x10, 0x00, 0x00, 0x00, 0x00]
+      mask: [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00]
     lambda: |-
-          uint8_t hi = data[8] >> 4;
-          if (hi == 0xA) return std::string("Up");
-          if (hi == 0xB) return std::string("Down");
-          if (hi == 0x01) return std::string("도착");
-          return std::string("Idle");
-      
-  # - platform: uartex
-  #   name: "Elevator Direction"
-  #   icon: "mdi:elevator"
-  #   state: 
-  #     data: [0x0D, 0x01, 0x34, 0x01, 0x41, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00]
-  #     mask: [0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00]
-  #   lambda: |-
-  #     if (check_value(8, 0x00, data, len)) return "정지";
-  #     if (check_value(8, 0xB0, data, len)) return "하행";
-  #     if (check_value(8, 0xA0, data, len)) return "상행";
-  #     if (check_value(8, 0x01, data, len)) return "도착";
-  #     return "Unknown";
+      uint8_t hi = data[7] >> 4;
+      if (hi == 0xA) return std::string("상행");
+      if (hi == 0xB) return std::string("하행");
+      return std::string("정지");
+
+  - platform: uartex
+    id: elevator_call_state
+    name: "Elevator Call State"
+    icon: "mdi:elevator-passenger"
+    state:
+      data: [0x0D, 0x01, 0x34, 0x01, 0x41, 0x10, 0x00, 0x00, 0x00, 0x00]
+      mask: [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00]
+    lambda: |-
+      uint8_t lo = data[7] & 0x0F;
+      if (lo == 0x1) return std::string("도착");
+      if (lo == 0x5) return std::string("상행호출");
+      if (lo == 0x6) return std::string("하행호출");
+      return std::string("Idle");
 
 button:
   - platform: uartex
     name: "Elevator Call Down"
     icon: "mdi:elevator-down"
-    command_on: 
-      data: [0x0B, 0x01, 0x34, 0x04, 0x41, 0x10, 0x00, 0x06]      
-      # data: [0x0B, 0x01, 0x34, 0x02, 0x41, 0x10, 0x06, 0x00]
-      # data: [0x0B, 0x01, 0x34, 0x02, 0x41, 0x10, 0x05, 0x00]
-      # ack: [0x0B, 0x01, 0x34, 0x02, 0x41, 0x10, 0x06, 0x00]  
+    command_on:
+      data: [0x0B, 0x01, 0x34, 0x04, 0x41, 0x10, 0x00, 0x06]
+
+  - platform: uartex
+    name: "Elevator Call Up"
+    icon: "mdi:elevator-up"
+    command_on:
+      data: [0x0B, 0x01, 0x34, 0x04, 0x41, 0x10, 0x00, 0x05]  
 
       
